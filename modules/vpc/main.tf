@@ -18,7 +18,7 @@ resource "google_compute_subnetwork" "sub" {
   name          = "${var.env}-subnet-01"
   ip_cidr_range = "10.${var.env == "dev" ? 10 : 20}.10.0/24"
   region        = "us-west1"
-  network       = google_compute_network.custom-test.id
+  network       = google_compute_network.vpc.id
 }
 
 resource "google_compute_network" "vpc" {
