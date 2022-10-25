@@ -24,14 +24,13 @@ resource "google_compute_instance" "http_server" {
   name         = "${local.network}-apache2-instance"
   machine_type = "f1-micro"
 
-  provisioning_model = "SPOT"
-  instance_termination_action = "DELETE"
-
   metadata_startup_script = "sudo apt-get update && sudo apt-get install apache2 -y && echo '<html><body><h1>Environment: ${local.network}</h1></body></html>' | sudo tee /var/www/html/index.html"
 
   scheduling {
-    preemtible = true
+    preemptible = true
     automatic_restart = false
+    provisioning_model = "SPOT"
+    instance_termination_action = "DELETE"
   }
 
   boot_disk {
