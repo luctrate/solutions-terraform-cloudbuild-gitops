@@ -23,6 +23,6 @@ resource "google_compute_subnetwork" "sub" {
 
 resource "google_compute_network" "vpc" {
   project                 = var.project
-  name                    = "var.env"
+  name                    = var.env
   auto_create_subnetworks = false
 }
