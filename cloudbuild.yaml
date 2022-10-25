@@ -30,6 +30,7 @@ steps:
   args: 
   - '-c'
   - |
+      terraform -v
       if [ -d "environments/$BRANCH_NAME/" ]; then
         cd environments/$BRANCH_NAME
         terraform init
