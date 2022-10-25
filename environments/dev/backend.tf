@@ -14,12 +14,6 @@
 
 
 terraform {
-  required_providers {
-    google = {
-      source = "hashicorp/google"
-      version = "4.41.0"
-    }
-  }
   backend "gcs" {
     bucket = "op-optima-tfstate"
     prefix = "env/dev"
